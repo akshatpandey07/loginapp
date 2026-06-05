@@ -11,9 +11,10 @@ function App() {
       <Routes>
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/" element={<Dashboard />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/employees" element={<EmployeeList />} />
         <Route path="/create" element={<CreateEmployee />} />
+        <Route path="/" element={<EmployeeList />} />
       </Routes>
     </BrowserRouter>
   );

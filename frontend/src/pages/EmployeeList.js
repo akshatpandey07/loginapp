@@ -21,7 +21,7 @@ function EmployeeList() {
   return (
     <div style={{ padding: "20px" }}>
       <h1>Employee List</h1>
-      <a href="/">Dashboard</a> &nbsp;&nbsp;
+      <a href="/Dashboard">Dashboard</a> &nbsp;&nbsp;
       <a href="/create">Create Employee</a>
       <table border="1" style={{ marginTop: "20px", width: "100%" }}>
         <thead>
