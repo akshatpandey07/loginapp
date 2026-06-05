@@ -45,8 +45,12 @@ function Dashboard() {
       </div>
       <br/>
       <a href="/employees">View Employees</a>
-      &nbsp;&nbsp;
-      <a href="/create">Create Employee</a>
+&nbsp;&nbsp;
+<a href="/create">Create Employee</a>
+&nbsp;&nbsp;
+<a href="/apply-leave">Apply Leave</a>
+&nbsp;&nbsp;
+<a href="/leaves">Leave Applications</a>
     </div>
   );
 }
