@@ -6,6 +6,8 @@ import EmployeeList from "./pages/EmployeeList";
 import CreateEmployee from "./pages/CreateEmployee";
 import ApplyLeave from "./pages/ApplyLeave";
 import LeaveList from "./pages/LeaveList";
+import AssetList from "./pages/AssetList";
+import AllocateAsset from "./pages/AllocateAsset";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
         <Route path="/create" element={<CreateEmployee />} />
         <Route path="/apply-leave" element={<ApplyLeave />} />
         <Route path="/leaves" element={<LeaveList />} />
+        <Route path="/assets" element={<AssetList />} />
+        <Route path="/allocate-asset" element={<AllocateAsset />} />
         <Route path="/" element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
