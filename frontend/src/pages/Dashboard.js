@@ -51,6 +51,10 @@ function Dashboard() {
 <a href="/apply-leave">Apply Leave</a>
 &nbsp;&nbsp;
 <a href="/leaves">Leave Applications</a>
+&nbsp;&nbsp;
+<a href="/assets">Asset Management</a>
+&nbsp;&nbsp;
+<a href="/allocate-asset">Allocate Asset</a>
     </div>
   );
 }
