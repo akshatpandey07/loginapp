@@ -3,27 +3,45 @@ import axios from "axios";
 
 function EmployeeList() {
   const [employees, setEmployees] = useState([]);
+  const [search, setSearch] = useState("");
+  const [page, setPage] = useState(1);
+  const [total, setTotal] = useState(0);
+  const limit = 5;
 
   useEffect(() => {
     fetchEmployees();
-  }, []);
+  }, [page, search]);
 
   const fetchEmployees = async () => {
-    const res = await axios.get("http://localhost:5000/api/employees");
-    setEmployees(res.data);
+    const res = await axios.get(
+      `http://localhost:5000/api/v1/employees?page=${page}&limit=${limit}&search=${search}`
+    );
+    setEmployees(res.data.data);
+    setTotal(res.data.total);
   };
 
   const deleteEmployee = async (id) => {
-    await axios.delete(`http://localhost:5000/api/employees/${id}`);
+    await axios.delete(`http://localhost:5000/api/v1/employees/${id}`);
     fetchEmployees();
   };
+
+  const totalPages = Math.ceil(total / limit);
 
   return (
     <div style={{ padding: "20px" }}>
       <h1>Employee List</h1>
-      <a href="/Dashboard">Dashboard</a> &nbsp;&nbsp;
+      <a href="/dashboard">Dashboard</a> &nbsp;&nbsp;
       <a href="/create">Create Employee</a>
-      <table border="1" style={{ marginTop: "20px", width: "100%" }}>
+      <br/><br/>
+      <input
+        placeholder="Search by name or designation..."
+        value={search}
+        onChange={(e) => { setSearch(e.target.value); setPage(1); }}
+        style={{ padding: "8px", width: "300px" }}
+      />
+      <br/><br/>
+      <p>Total Employees: {total}</p>
+      <table border="1" style={{ width: "100%" }}>
         <thead>
           <tr>
             <th>Name</th>
@@ -36,7 +54,7 @@ function EmployeeList() {
           </tr>
         </thead>
         <tbody>
-          {employees.map(emp => (
+          {employees && employees.map(emp => (
             <tr key={emp.id}>
               <td>{emp.name}</td>
               <td>{emp.email}</td>
@@ -51,6 +69,12 @@ function EmployeeList() {
           ))}
         </tbody>
       </table>
+      <br/>
+      <button onClick={() => setPage(p => p - 1)} disabled={page === 1}>Previous</button>
+      &nbsp;
+      <span>Page {page} of {totalPages}</span>
+      &nbsp;
+      <button onClick={() => setPage(p => p + 1)} disabled={page === totalPages}>Next</button>
     </div>
   );
 }

@@ -9,12 +9,12 @@ function LeaveList() {
   }, []);
 
   const fetchLeaves = async () => {
-    const res = await axios.get("http://localhost:5000/api/leaves");
+    const res = await axios.get("http://localhost:5000/api/v1/leaves");
     setLeaves(res.data);
   };
 
   const handleAction = async (id, action) => {
-    await axios.put(`http://localhost:5000/api/leaves/approve/${id}`, {
+    await axios.put(`http://localhost:5000/api/v1/leaves/approve/${id}`, {
       action: action,
       remarks: action === "approved" ? "Approved by Manager" : "Rejected by Manager",
       approved_by: 2

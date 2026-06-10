@@ -13,7 +13,7 @@ function ApplyLeave() {
   });
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/leaves/types")
+    axios.get("http://localhost:5000/api/v1/leaves/types")
       .then(res => setLeaveTypes(res.data));
   }, []);
 
@@ -23,7 +23,7 @@ function ApplyLeave() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:5000/api/leaves/apply", form);
+    await axios.post("http://localhost:5000/api/v1//leaves/apply", form);
     alert("Leave Applied Successfully!");
     window.location.href = "/leaves";
   };
