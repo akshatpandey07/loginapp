@@ -9,7 +9,7 @@ function CreateEmployee() {
   });
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/departments")
+    axios.get("http://localhost:5000/api/v1/departments")
       .then(res => setDepartments(res.data));
   }, []);
 
@@ -19,7 +19,7 @@ function CreateEmployee() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:5000/api/employees", form);
+    await axios.post("http://localhost:5000/api/v1/employees", form);
     alert("Employee Created!");
     window.location.href = "/employees";
   };
