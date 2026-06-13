@@ -15,13 +15,20 @@ function Dashboard() {
         const emp = await axios.get(`${API_URL}/api/v1/employees`);
         const dept = await axios.get(`${API_URL}/api/v1/departments`);
         const skill = await axios.get(`${API_URL}/api/v1/skills`);
+
+        console.log("EMP RESPONSE:", emp.data);
+
+        const empCount = Array.isArray(emp.data)
+          ? emp.data.length
+          : (emp.data.total ?? emp.data.data?.length ?? 0);
+
         setStats({
-          employees: emp.data.total || 0,
+          employees: empCount,
           departments: dept.data.length,
           skills: skill.data.length
         });
       } catch (error) {
-        console.log(error);
+        console.log("DASHBOARD ERROR:", error);
       }
     };
     fetchStats();
@@ -46,21 +53,20 @@ function Dashboard() {
       </div>
       <br/>
       <a href="/employees">View Employees</a>
-&nbsp;&nbsp;
-<a href="/create">Create Employee</a>
-&nbsp;&nbsp;
-<a href="/apply-leave">Apply Leave</a>
-&nbsp;&nbsp;
-<a href="/leaves">Leave Applications</a>
-&nbsp;&nbsp;
-<a href="/assets">Asset Management</a>
-&nbsp;&nbsp;
-<a href="/allocate-asset">Allocate Asset</a>
-&nbsp;&nbsp;
-<a href="/analytics">Analytics Dashboard</a>
+      &nbsp;&nbsp;
+      <a href="/create">Create Employee</a>
+      &nbsp;&nbsp;
+      <a href="/apply-leave">Apply Leave</a>
+      &nbsp;&nbsp;
+      <a href="/leaves">Leave Applications</a>
+      &nbsp;&nbsp;
+      <a href="/assets">Asset Management</a>
+      &nbsp;&nbsp;
+      <a href="/allocate-asset">Allocate Asset</a>
+      &nbsp;&nbsp;
+      <a href="/analytics">Analytics Dashboard</a>
     </div>
   );
 }
 
 export default Dashboard;
-
