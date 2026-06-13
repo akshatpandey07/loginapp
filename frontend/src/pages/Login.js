@@ -1,3 +1,4 @@
+import API_URL from "../config";
 import { useState } from "react";
 import axios from "axios";
 
@@ -14,7 +15,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const res = await axios.post(
-      "http://localhost:5000/api/v1/auth/login",
+      `${API_URL}/api/v1/auth/login`,
       form
     );
     localStorage.setItem("token", res.data.token);

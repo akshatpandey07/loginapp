@@ -1,3 +1,4 @@
+import API_URL from "../config";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -11,7 +12,7 @@ function AllocateAsset() {
   });
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/assets")
+    axios.get(`${API_URL}/api/assets`)
       .then(res => setAssets(res.data.filter(a => a.status === "available")));
   }, []);
 
@@ -21,7 +22,7 @@ function AllocateAsset() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:5000/api/v1/assets/allocate", form);
+    await axios.post(`${API_URL}/api/v1/assets/allocate`, form);
     alert("Asset Allocated Successfully!");
     window.location.href = "/assets";
   };

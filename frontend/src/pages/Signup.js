@@ -1,3 +1,4 @@
+import API_URL from "../config";
 import { useState } from "react";
 import axios from "axios";
 
@@ -15,7 +16,7 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const res = await axios.post(
-      "http://localhost:5000/api/v1/auth/signup",
+      `${API_URL}/api/v1/auth/signup`,
       form
     );
     alert(res.data.message);

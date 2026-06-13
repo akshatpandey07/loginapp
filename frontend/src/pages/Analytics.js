@@ -1,3 +1,4 @@
+import API_URL from "../config";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import {
@@ -15,19 +16,19 @@ function Analytics() {
   const [payroll, setPayroll] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/v1/payroll/attendance-summary")
+    axios.get(`${API_URL}/api/v1/payroll/attendance-summary`)
       .then(res => setAttendance(res.data));
 
-    axios.get("http://localhost:5000/api/v1/payroll/department-salary")
+    axios.get(`${API_URL}/api/v1/payroll/department-salary`)
       .then(res => setDeptSalary(res.data));
 
-    axios.get("http://localhost:5000/api/v1/payroll/leave-summary")
+    axios.get(`${API_URL}/api/v1/payroll/leave-summary`)
       .then(res => setLeaveStatus(res.data));
 
-    axios.get("http://localhost:5000/api/v1/payroll/asset-summary")
+    axios.get(`${API_URL}/api/v1/payroll/asset-summary`)
       .then(res => setAssetStatus(res.data));
 
-    axios.get("http://localhost:5000/api/v1/payroll/payroll")
+    axios.get(`${API_URL}/api/v1/payroll/payroll`)
       .then(res => setPayroll(res.data));
   }, []);
 

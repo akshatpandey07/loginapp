@@ -1,3 +1,4 @@
+import API_URL from "../config";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -9,7 +10,7 @@ function CreateEmployee() {
   });
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/v1/departments")
+    axios.get(`${API_URL}/api/v1/departments`)
       .then(res => setDepartments(res.data));
   }, []);
 
@@ -19,7 +20,7 @@ function CreateEmployee() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:5000/api/v1/employees", form);
+    await axios.post(`${API_URL}/api/v1/employees`, form);
     alert("Employee Created!");
     window.location.href = "/employees";
   };
