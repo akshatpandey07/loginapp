@@ -1,3 +1,4 @@
+import API_URL from "../config";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -11,9 +12,9 @@ function Dashboard() {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const emp = await axios.get("http://localhost:5000/api/v1/employees");
-        const dept = await axios.get("http://localhost:5000/api/v1/departments");
-        const skill = await axios.get("http://localhost:5000/api/v1/skills");
+        const emp = await axios.get(`${API_URL}/api/v1/employees`);
+        const dept = await axios.get(`${API_URL}/api/v1/departments`);
+        const skill = await axios.get(`${API_URL}/api/v1/skills`);
         setStats({
           employees: emp.data.length,
           departments: dept.data.length,

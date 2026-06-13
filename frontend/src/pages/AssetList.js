@@ -1,3 +1,4 @@
+import API_URL from "../config";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -9,7 +10,7 @@ function AssetList() {
   }, []);
 
   const fetchAssets = async () => {
-    const res = await axios.get("http://localhost:5000/api/v1/assets");
+    const res = await axios.get(`${API_URL}/api/v1/assets`);
     setAssets(res.data);
   };
 

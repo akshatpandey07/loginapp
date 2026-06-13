@@ -1,3 +1,4 @@
+import API_URL from "../config";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -14,14 +15,14 @@ function EmployeeList() {
 
   const fetchEmployees = async () => {
     const res = await axios.get(
-      `http://localhost:5000/api/v1/employees?page=${page}&limit=${limit}&search=${search}`
+      `${API_URL}/api/v1/employees?page=${page}&limit=${limit}&search=${search}`
     );
     setEmployees(res.data.data);
     setTotal(res.data.total);
   };
 
   const deleteEmployee = async (id) => {
-    await axios.delete(`http://localhost:5000/api/v1/employees/${id}`);
+    await axios.delete(`${API_URL}/api/v1/employees/${id}`);
     fetchEmployees();
   };
 
