@@ -11,6 +11,7 @@ function EmployeeList() {
 
   useEffect(() => {
     fetchEmployees();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page, search]);
 
   const fetchEmployees = async () => {
