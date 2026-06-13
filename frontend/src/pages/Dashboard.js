@@ -55,6 +55,8 @@ function Dashboard() {
 <a href="/assets">Asset Management</a>
 &nbsp;&nbsp;
 <a href="/allocate-asset">Allocate Asset</a>
+&nbsp;&nbsp;
+<a href="/analytics">Analytics Dashboard</a>
     </div>
   );
 }

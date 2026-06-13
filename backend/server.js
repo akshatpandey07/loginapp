@@ -11,6 +11,7 @@ const skillRoutes = require("./routes/skills");
 const employeeRoutes = require("./routes/employees");
 const leaveRoutes = require("./routes/leaves");
 const assetRoutes = require("./routes/assets");
+const payrollRoutes = require("./routes/payroll");
 
 const app = express();
 app.use(cors());
@@ -28,6 +29,7 @@ app.use("/api/v1/skills", skillRoutes);
 app.use("/api/v1/employees", employeeRoutes);
 app.use("/api/v1/leaves", leaveRoutes);
 app.use("/api/v1/assets", assetRoutes);
+app.use("/api/v1/payroll", payrollRoutes);
 
 app.use(errorHandler);
 
