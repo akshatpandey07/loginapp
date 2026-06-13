@@ -16,7 +16,7 @@ function Dashboard() {
         const dept = await axios.get(`${API_URL}/api/v1/departments`);
         const skill = await axios.get(`${API_URL}/api/v1/skills`);
         setStats({
-          employees: emp.data.total,
+          employees: emp.data.total || 0,
           departments: dept.data.length,
           skills: skill.data.length
         });
@@ -63,3 +63,4 @@ function Dashboard() {
 }
 
 export default Dashboard;
+
