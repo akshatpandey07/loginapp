@@ -8,6 +8,7 @@ import ApplyLeave from "./pages/ApplyLeave";
 import LeaveList from "./pages/LeaveList";
 import AssetList from "./pages/AssetList";
 import AllocateAsset from "./pages/AllocateAsset";
+import Analytics from "./pages/Analytics";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/leaves" element={<LeaveList />} />
         <Route path="/assets" element={<AssetList />} />
         <Route path="/allocate-asset" element={<AllocateAsset />} />
+        <Route path="/analytics" element={<Analytics />} />
         <Route path="/" element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
