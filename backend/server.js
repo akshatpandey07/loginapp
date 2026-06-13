@@ -15,7 +15,11 @@ const payrollRoutes = require("./routes/payroll");
 
 const app = express();
 app.use(cors({
-  origin: ["https://loginapp-frontend-2-bwrqz4ush-akshat-pandey.vercel.app", "http://localhost:3000"]
+  origin: [
+    "https://loginapp-frontend-2-bwrqz4ush-akshat-pandey.vercel.app",
+    "https://ems-five-iota.vercel.app",
+    "http://localhost:3000"
+  ]
 }));
 app.use(express.json());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
