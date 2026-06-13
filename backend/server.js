@@ -14,7 +14,9 @@ const assetRoutes = require("./routes/assets");
 const payrollRoutes = require("./routes/payroll");
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: ["https://loginapp-frontend-2-bwrqz4ush-akshat-pandey.vercel.app", "https://localhost:3000"]
+}));
 app.use(express.json());
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
